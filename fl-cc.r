@@ -8,10 +8,10 @@ library(scales)
 library(plyr)
 library(gridExtra)
 
-ccpermits <- read.csv('/Users/PFM/Desktop/fl-ccpermits.csv')
+ccpermits <- read.csv('fl-ccpermits.csv')
 names(ccpermits) <- c('county','permits')
 
-flpop <- read.csv('/Users/PFM/Desktop/2013_Pop_Estimates.csv')
+flpop <- read.csv('2013_Pop_Estimates.csv')
 flpop <- flpop[-c(68:623),]
 flpop <- flpop[1:2]
 names(flpop) <- c('county','population')
