@@ -15,6 +15,14 @@ flpop <- read.csv('2013_Pop_Estimates.csv')
 flpop <- flpop[-c(68:623),]
 flpop <- flpop[1:2]
 names(flpop) <- c('county','population')
+flpop$county <- gsub(" County","",flpop$county)
+flpop$population  <- gsub(",", "", flpop$population)
+flpop$county  <- gsub("[.]", "", flpop$county)
+
+flpop <- data.frame(lapply(flpop, function(v) {
+  if (is.character(v)) return(toupper(v))
+  else return(v)
+}))
 
 florida <- map_data('county', regions ='florida')
 
